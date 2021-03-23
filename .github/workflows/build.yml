@@ -4,13 +4,13 @@ jobs:
   build:
     strategy:
       matrix:
-        target: [ x86_64, i686, aarch64 ]
+        target: [ x86_64-pc-windows-msvc, i686-pc-windows-msvc, aarch64-pc-windows-msvc, i686-pc-windows-gnu, x86_64-pc-windows-gnu ]
     runs-on: windows-2019
     steps:
       - uses: actions/checkout@v2
-      - run: rustup target add ${{ matrix.target }}-pc-windows-msvc
-      - run: cargo build --release --target ${{ matrix.target }}-pc-windows-msvc
+      - run: rustup target add ${{ matrix.target }}
+      - run: cargo build --release --target ${{ matrix.target }}
       - uses: actions/upload-artifact@v2
         with:
           name: Artifacts ${{ matrix.target }}
-          path: target/${{ matrix.target }}-pc-windows-msvc/release/fabric-installer-native-bootstrap.exe
+          path: target/${{ matrix.target }}/release/fabric-installer-native-bootstrap.exe
