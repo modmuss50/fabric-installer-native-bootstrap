@@ -14,10 +14,3 @@ webbrowser = "0.5.5"
 [build-dependencies]
 embed-resource = "1.6.0"
 winres = "0.1.11"
-
-[target.x86_64-pc-windows-msvc]
-rustflags = ["-Ctarget-feature=+crt-static"]
-[target.i686-pc-windows-msvc]
-rustflags = ["-Ctarget-feature=+crt-static"]
-[target.aarch64-pc-windows-msvc]
-rustflags = ["-Ctarget-feature=+crt-static"]
